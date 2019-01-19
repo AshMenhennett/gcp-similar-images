@@ -45,7 +45,7 @@ def create_cropped_face():
     cropped_image_file_path = os.path.join(TMP_DIR, cropped_image_file_name)
     cropped_image.save(cropped_image_file_path, format=request_image_format)
 
-    return jsonify({ 'basePath': TMP_DIR, 'filename' :  cropped_image_file_name }), 201
+    return jsonify({ 'croppedFilePath' :  TMP_DIR + '/' + cropped_image_file_name }), 201
     
 
 @app.route('/croppedImages/similar', methods=['POST'])
@@ -75,6 +75,6 @@ def create_similar_faces():
         created_file = stored_image.downloadImage()
         created_file and image_name_list.append(created_file)
 
-    return jsonify({'recordsSize': len(image_name_list), 'basePath': TMP_DIR, 'directory': cropped_file_id }), 201
+    return jsonify({'recordsSize': len(image_name_list), 'directory': TMP_DIR + '/' + cropped_file_id + '/' }), 201
 
 app.run(debug=True)

@@ -30,6 +30,7 @@ Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0g
 Content-Disposition: form-data; name="image"; filename="billgates.jpg"
 Content-Type: image/jpeg
 
+BINARY_DATA_HERE
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 ```
@@ -37,8 +38,7 @@ Content-Type: image/jpeg
 Response:
 ```
 {
-    "basePath": "/Users/someuser/projects/gcp-similar-images/tmp",
-    "filename": "e4de332c19fc4b27afaa67fc0129ad4c.jpeg"
+    "croppedFilePath": "/Users/someuser/projects/gcp-similar-images/tmp/75e6481de4e247b297d01e4c8bd37fac.jpeg"
 }
 ```
 
@@ -53,10 +53,9 @@ Cache-Control: no-cache
 Response:
 ```
 {
-    "basePath": "/Users/someuser/projects/gcp-similar-images/tmp",
-    "imageDirectory": "e4de332c19fc4b27afaa67fc0129ad4c",
-    "recordsSize": 7
+    "directory": "/Users/someuser/projects/Personal/gcp-similar-images/tmp/75e6481de4e247b297d01e4c8bd37fac/",
+    "recordsSize": 10
 }
 ```
 
-All matching images that the GCP Vision API found will be located at `response.basePath/response.imageDirectory` 
+All matching images that the GCP Vision API found will be located at `response.directory/`
